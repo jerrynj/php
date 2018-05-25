@@ -1,0 +1,48 @@
+<?php $__env->startSection('content'); ?>
+<div class="container">
+
+    <h1>Log <a href="<?php echo e(url('/log/create')); ?>" class="btn btn-primary btn-xs" title="Add New Log"><span class="glyphicon glyphicon-plus" aria-hidden="true"/></a></h1>
+    <div class="table">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>S.No</th><th> <?php echo e(trans('log.uid')); ?> </th><th> <?php echo e(trans('log.name')); ?> </th><th> <?php echo e(trans('log.t')); ?> </th><th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php /* */$x=0;/* */ ?>
+            <?php foreach($log as $item): ?>
+                <?php /* */$x++;/* */ ?>
+                <tr>
+                    <td><?php echo e($x); ?></td>
+                    <td><?php echo e($item->uid); ?></td><td><?php echo e($item->name); ?></td><td><?php echo e($item->t); ?></td>
+                    <td>
+                        <a href="<?php echo e(url('/log/' . $item->id)); ?>" class="btn btn-success btn-xs" title="View Log"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
+                        <a href="<?php echo e(url('/log/' . $item->id . '/edit')); ?>" class="btn btn-primary btn-xs" title="Edit Log"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
+                        <?php echo Form::open([
+                            'method'=>'DELETE',
+                            'url' => ['/log', $item->id],
+                            'style' => 'display:inline'
+                        ]); ?>
+
+                            <?php echo Form::button('<span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete Log" />', array(
+                                    'type' => 'submit',
+                                    'class' => 'btn btn-danger btn-xs',
+                                    'title' => 'Delete Log',
+                                    'onclick'=>'return confirm("Confirm delete?")'
+                            ));; ?>
+
+                        <?php echo Form::close(); ?>
+
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+        <div class="pagination"> <?php echo $log->render(); ?> </div>
+    </div>
+
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,48 @@
+<?php $__env->startSection('content'); ?>
+<div class="container">
+
+    <h1>Session</h1>
+    <a href="<?php echo e(url('/test/session')); ?>">初始Session</a> &nbsp; &nbsp;&nbsp;&nbsp;
+    <a href="<?php echo e(url('/test/session1')); ?>">获取Session</a> &nbsp; &nbsp;&nbsp;&nbsp;
+    <a href="<?php echo e(url('/test/flush')); ?>">清空Session</a> &nbsp; &nbsp;&nbsp;&nbsp;
+    <div class="table">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>#</th><th> Key </th><th> Value </th><th> Size </th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if(count($lists) > 0): ?>
+                    <?php /* */$x=0;/* */ ?>
+                    <?php foreach($lists as $k=>$v): ?>
+                        <?php /* */$x++;/* */ ?>
+                         <?php if(is_array($v)): ?>
+                            <?php foreach($v as $k1=>$v1): ?>
+                            <tr>
+                                <td><?php echo e($x); ?></td>
+                                <td><?php echo e($k1); ?></td>
+                                <td><?php echo is_array($v1)? '-':$v1; ?></td> 
+                                <td><?php echo count($v1); ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td><?php echo e($x); ?></td>
+                                <td><?php echo e($k); ?></td>
+                                <td><?php echo $v; ?></td> 
+                                 <td><?php echo count($v); ?></td>
+                            </tr>
+                    <?php endif; ?> 
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+    </div>
+
+
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,46 @@
+<?php $__env->startSection('content'); ?>
+    <div class="container">
+        <div class="col-sm-offset-2 col-sm-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Edit Group
+                </div>
+
+                <div class="panel-body">
+                  
+                    <!-- New Task Form -->
+                    <form action="<?php echo e(url('/group')); ?>" method="POST" class="form-horizontal">
+                        <?php echo e(csrf_field()); ?>    
+                        <input type="hidden" id="gid" name="gid" value="<?php echo e($vo->id); ?>" /> 
+                        <div class="form-group">
+                            <label for="task-name" class="col-sm-3 control-label">Group ID</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" name="id" id="id" class="form-control" value="<?php echo e($vo->id); ?>" readonly>
+                            </div>
+                        </div><!-- Task Name -->
+                        <div class="form-group">
+                            <label for="group-name" class="col-sm-3 control-label">Group Name</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" name="title" id="title" class="form-control" value="<?php echo e($vo->title); ?>">
+                            </div>
+                        </div>
+
+                        
+                        <!-- Add Task Button -->
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fa fa-btn fa-plus"></i>Save
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>            
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,91 @@
+<?php $__env->startSection('content'); ?>
+<div class="container">
+
+    <h1>Create New Log</h1>
+    <hr/>
+
+    <?php echo Form::open(['url' => '/log', 'class' => 'form-horizontal']); ?>
+
+
+                <div class="form-group <?php echo e($errors->has('uid') ? 'has-error' : ''); ?>">
+                <?php echo Form::label('uid', trans('log.uid'), ['class' => 'col-sm-3 control-label']); ?>
+
+                <div class="col-sm-6">
+                    <?php echo Form::number('uid', null, ['class' => 'form-control']); ?>
+
+                    <?php echo $errors->first('uid', '<p class="help-block">:message</p>'); ?>
+
+                </div>
+            </div>
+            <div class="form-group <?php echo e($errors->has('name') ? 'has-error' : ''); ?>">
+                <?php echo Form::label('name', trans('log.name'), ['class' => 'col-sm-3 control-label']); ?>
+
+                <div class="col-sm-6">
+                    <?php echo Form::text('name', null, ['class' => 'form-control', 'required' => 'required']); ?>
+
+                    <?php echo $errors->first('name', '<p class="help-block">:message</p>'); ?>
+
+                </div>
+            </div>
+            <div class="form-group <?php echo e($errors->has('t') ? 'has-error' : ''); ?>">
+                <?php echo Form::label('t', trans('log.t'), ['class' => 'col-sm-3 control-label']); ?>
+
+                <div class="col-sm-6">
+                    <?php echo Form::number('t', null, ['class' => 'form-control']); ?>
+
+                    <?php echo $errors->first('t', '<p class="help-block">:message</p>'); ?>
+
+                </div>
+            </div>
+            <div class="form-group <?php echo e($errors->has('ip') ? 'has-error' : ''); ?>">
+                <?php echo Form::label('ip', trans('log.ip'), ['class' => 'col-sm-3 control-label']); ?>
+
+                <div class="col-sm-6">
+                    <?php echo Form::text('ip', null, ['class' => 'form-control']); ?>
+
+                    <?php echo $errors->first('ip', '<p class="help-block">:message</p>'); ?>
+
+                </div>
+            </div>
+            <div class="form-group <?php echo e($errors->has('log') ? 'has-error' : ''); ?>">
+                <?php echo Form::label('log', trans('log.log'), ['class' => 'col-sm-3 control-label']); ?>
+
+                <div class="col-sm-6">
+                    <?php echo Form::text('log', null, ['class' => 'form-control']); ?>
+
+                    <?php echo $errors->first('log', '<p class="help-block">:message</p>'); ?>
+
+                </div>
+            </div>
+            <div class="form-group <?php echo e($errors->has('url') ? 'has-error' : ''); ?>">
+                <?php echo Form::label('url', trans('log.url'), ['class' => 'col-sm-3 control-label']); ?>
+
+                <div class="col-sm-6">
+                    <?php echo Form::text('url', null, ['class' => 'form-control']); ?>
+
+                    <?php echo $errors->first('url', '<p class="help-block">:message</p>'); ?>
+
+                </div>
+            </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-3">
+            <?php echo Form::submit('Create', ['class' => 'btn btn-primary form-control']); ?>
+
+        </div>
+    </div>
+    <?php echo Form::close(); ?>
+
+
+    <?php if($errors->any()): ?>
+        <ul class="alert alert-danger">
+            <?php foreach($errors->all() as $error): ?>
+                <li><?php echo e($error); ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

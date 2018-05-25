@@ -1,0 +1,3 @@
+<li class="<?php echo e(Request::is('home*') ? 'active' : ''); ?>">
+   <a href="<?php echo url('/home'); ?>">Home</a>
+</li>

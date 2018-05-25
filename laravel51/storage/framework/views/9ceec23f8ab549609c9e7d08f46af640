@@ -1,0 +1,13 @@
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Laravel</title>
+    <link href="<?php echo e(url('/fi/bootstrap/css/bootstrap.min.css')); ?>" rel='stylesheet' type='text/css'>
+    <link href="<?php echo e(url('/fi/bootstrap/css/default.css')); ?>" rel='stylesheet' type='text/css'>
+    <link href="<?php echo e(url('/fi/bootstrap/css/fileinput.css')); ?>" rel='stylesheet' type='text/css'>
+
+    <script src="<?php echo e(url('/fi/bootstrap/js/fileinput.min.js')); ?>"></script>
+    <script src="<?php echo e(url('/fi/bootstrap/js/bootstrap.min.js')); ?>"></script>
+    <script src="<?php echo e(url('/fi/js/locales/zh.js')); ?>"></script>

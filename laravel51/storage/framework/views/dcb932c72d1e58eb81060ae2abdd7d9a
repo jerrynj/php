@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>常量 - demo</title>
+        <link href="<?php echo e(url('/css/demo.css')); ?>" rel='stylesheet' type='text/css'>
+    </head> 
+    <body>
+
+        <table class="bordered"> 
+
+            <thead>   
+                <tr>
+                    <th>#</th>        
+                    <th>常量</th>
+                    <th>常量值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+
+            <?php /* */$x=0;/* */ ?>
+            <?php foreach($list as $vo): ?>
+            <?php /* */$x++;/* */ ?>
+            <tr>
+                <td><?php echo e($x); ?></td>        
+                <td><?php echo e($vo->title); ?></td>
+                <td><?php echo e($vo->constant); ?></td>
+                <td><?php echo e($vo->description); ?></td>
+            </tr>  
+            <?php endforeach; ?>
+
+            <tr>
+                <td><?php echo e($x); ?></td>        
+                <td>locale常量 <?php echo e(session('user.name')); ?></td>
+                <td><?php echo e(Config::get('app.locale')); ?></td>
+                <td>/conffig/app.php中locale常量</td>
+            </tr> 
+            <tr>
+                <td><?php echo e($x); ?></td>        
+                <td>session常量 </td>
+                <td><?php echo e(session('user.name')); ?></td>
+                <td>Session常量</td>
+            </tr> 
+            <tr>
+                <td><?php echo e($x); ?></td>        
+                <td>全局常量 </td>
+                <td><?php echo e(env('APP_DEBUG')); ?></td>
+                <td>APP_DEBUG常量</td>
+            </tr> 
+        </table>
+
+        <br><br> 
+        <br>
+
+
+    </body>
+</html>

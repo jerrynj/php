@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practical CSS3 tables with rounded corners - demo</title>
+        <link href="<?php echo e(url('/css/demo.css')); ?>" rel='stylesheet' type='text/css'>
+    </head> 
+    <body>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <?php if(Auth::guest()): ?>
+                    <?php echo e($authlogin); ?> &nbsp;  &nbsp; &nbsp;<a href="/authen/login">Login</a>  &nbsp; &nbsp; &nbsp;--  Laravel 5.1.35
+                    <?php else: ?>                
+                    欢迎&nbsp; <?php echo e(Auth::user()->name); ?>  &nbsp; &nbsp; &nbsp; <a href="/auth/logout">Logout</a>  &nbsp; &nbsp; &nbsp;--  Laravel 5.1.35
+                    <?php endif; ?>
+                </li> 
+            </ul>
+        </div>
+        <table class="bordered"> 
+
+            <thead>   
+                <tr>
+                    <th>#</th>        
+                    <th>标题</th>
+                    <th>路由</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <?php /* */$x=0;/* */ ?>
+            <?php foreach($list as $vo): ?>
+             <?php /* */$x++;/* */ ?>
+            <tr>
+                <td><?php echo e($x); ?></td>        
+                <td><?php echo e($vo->title); ?></td>
+                <td><?php echo e($vo->route); ?></td>
+                <td><a href="<?php echo e(url($vo->route)); ?>"><?php echo e($vo->description); ?></a></td>
+            </tr>  
+            <?php endforeach; ?>
+
+        </table>
+
+        <br><br> 
+        <br>
+
+
+    </body>
+</html>

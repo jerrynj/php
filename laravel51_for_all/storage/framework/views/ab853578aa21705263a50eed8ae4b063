@@ -1,0 +1,11 @@
+<?php echo $__env->make('errors.errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<form action="<?php echo e(route('post.update', ['id'=>$vo->id])); ?>" method="POST">
+    <?php echo e(csrf_field()); ?>
+
+    <?php echo e(method_field('PUT')); ?>
+
+    <input type="text" name="title" value="<?php echo e($vo->title); ?>"><br/><br/>
+    <textarea name="content" cols="50" rows="5"><?php echo e($vo->content); ?></textarea><br/><br/>
+    <input type="submit" value="提交"/>  &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" value="取消"/>
+</form>

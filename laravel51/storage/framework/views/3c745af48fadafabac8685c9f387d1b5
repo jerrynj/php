@@ -1,0 +1,51 @@
+<?php $__env->startSection('content'); ?>
+<div class="container">
+    <div class="col-sm-offset-2 col-sm-8">    
+        <div class="panel panel-default">
+         <div class="col-sm-offset-3 col-sm-6">
+                
+                    <a href="<?php echo e(url('/member/add')); ?>">Add Member</a> 
+                
+            </div>
+            <div class="panel-heading">
+                Current Members
+            </div>
+
+            <div class="panel-body">
+                <table class="table table-striped task-table">
+                    <thead>
+                        <th>#</th>
+                        <th>用户名称</th>
+                        <th>&nbsp;</th>
+                    </thead>
+                    <tbody>
+                        <?php foreach($list as $vo): ?>
+                        <tr>
+                            <td class="table-text"><div> </div></td>
+                            <td class="table-text"><div><a href="<?php echo e(url('/member',['id'=>$vo->id])); ?>"><?php echo e($vo->user); ?></a></div></td>
+
+                            <!-- Task Delete Button -->
+                            <td>
+                                <form action="/member/<?php echo e($vo->id); ?>" method="POST">
+                                    <?php echo e(csrf_field()); ?>
+
+                                    <?php echo e(method_field('DELETE')); ?>
+
+
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="fa fa-btn fa-trash"></i>Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+       
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

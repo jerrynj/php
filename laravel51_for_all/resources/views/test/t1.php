@@ -1,0 +1,1 @@
+<?php if($item->sex() ===1): ?> 男 <?php elseif($item->sex() ===0): ?> 女 <?php else: ?> 未知 <?php endif; ?>
