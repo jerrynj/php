@@ -31,10 +31,11 @@ class Hkauth extends HlyApi
         $lservice = \think\Loader::model('Hly','service');
         //        * 调用方法
         $ret = $lservice->auth($d=[]);
+//        dump($ret);exit;
         
         //转换成json
         $data = $lservice->revert($ret);
-        //return xml($result);
+        return xml($result);
         $this->resultJwd($data);
     }
     
